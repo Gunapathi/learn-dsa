@@ -44,8 +44,8 @@ function solve(A, B) {
 
     // Apply the difference array technique
     for (let i = 0; i < B.length; i++) {
-        const L = B[i][0] - 1, // Convert to zero-indexed
-            R = B[i][1], // This will be used as is in zero-indexed
+        const L = B[i][0] - 1, // Convert to zero-indexed [0] -> ( = [L])
+            R = B[i][1], // used as is in zero-indexed [0] -> ( < [R])
             P = B[i][2]; // rupee
 
         result[L] += P;
