@@ -13,7 +13,7 @@ function solve(A) {
         return findMax(c - 1, max)
     }
 
-    return findMax(count - 1, A[count - 1])
+    return findMax(count - 2, A[count - 1])
 }
 
 console.log(solve([12, 10, 3, 4, 5])) // 12
