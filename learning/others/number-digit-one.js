@@ -60,7 +60,7 @@ function countDigitOne(A) {
             count += (higher + 1) * factor;
         } else if (digit === 1) {
             // If the current_digit === 1, add the contributions from ((higher * factor) + (lower part + 1)) to include the current digit itself.
-            count += higher * factor + lower + 1;
+            count += (higher * factor) + (lower + 1);
         } else {
             // If the current_digit === 0, then count > (higher * factor).
             count += higher * factor;
