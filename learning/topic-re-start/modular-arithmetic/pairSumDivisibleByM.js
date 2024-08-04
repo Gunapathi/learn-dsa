@@ -53,9 +53,32 @@ Explanation 2:
  There is only one pair which is divisible by 28 is (17, 11)
  */
 
-function solve() {
+function solve(A, B) {
+    const MOD = 1e9 + 7;
+    const remainderCount = new Array(B).fill(0);
 
+    // Calculate remainders and their frequencies
+    for (let num of A) {
+        remainderCount[num % B]++;
+    }
+
+    let count = 0;
+
+    // Handle pairs where both elements have remainder 0
+    count += (remainderCount[0] * (remainderCount[0] - 1)) / 2;
+
+    // Handle pairs for other remainders
+    for (let i = 1; i <= B / 2; i++) {
+        if (i == B - i) {
+            // Special case where the remainder and its complement are the same
+            count += (remainderCount[i] * (remainderCount[i] - 1)) / 2;
+        } else {
+            count += remainderCount[i] * remainderCount[B - i];
+        }
+    }
+
+    return Math.floor(count % MOD);
 }
 
-console.log(solve([1, 2, 3, 4, 5], 2)) // 4
-console.log(solve([5, 17, 100, 11], 28)) // 1
+console.log(solve([1, 2, 3, 4, 5], 2)); // 4
+console.log(solve([5, 17, 100, 11], 28)); // 1
