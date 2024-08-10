@@ -26,8 +26,6 @@ function merge(arr, low, mid, high) {
     for (let i = low; i <= high; i++) {
         arr[i] = temp[i - low];
     }
-
-    return arr;
 }
 
 function mergeSort(arr, low, high) {
@@ -39,8 +37,6 @@ function mergeSort(arr, low, high) {
     mergeSort(arr, low, mid); // first half
     mergeSort(arr, mid + 1, high); // second half
     merge(arr, low, mid, high) // merge first and second half;
-
-    return arr;
 }
 
 function solve(arr) {
@@ -50,3 +46,4 @@ function solve(arr) {
 }
 
 console.log(solve([3, 2, 4, 5, 1, 8, 1]))
+console.log(solve([1, 3, 2, 3, 1]))
