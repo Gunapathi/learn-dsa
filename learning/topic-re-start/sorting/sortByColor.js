@@ -48,20 +48,20 @@ Explanation 2:
     [0] is the required order
  */
 
-function ducthNationalFlagAlgo(arr, start, curr, end) {
+function ducthNationalFlagAlgo(arr, start, mid, end) {
     let low = start;
-    let mid = curr;
+    let curr = mid;
     let high = end;
 
-    while (mid <= high) {
-        if (arr[mid] === 0) {
-            [arr[low], arr[mid]] = [arr[mid], arr[low]];
+    while (curr <= high) {
+        if (arr[curr] === 0) {
+            [arr[low], arr[curr]] = [arr[curr], arr[low]];
             low++;
-            mid++;
-        } else if (arr[mid] === 1) {
-            mid++;
+            curr++;
+        } else if (arr[curr] === 1) {
+            curr++;
         } else {
-            [arr[mid], arr[high]] = [arr[high], arr[mid]];
+            [arr[curr], arr[high]] = [arr[high], arr[curr]];
             high--;
         }
     }
