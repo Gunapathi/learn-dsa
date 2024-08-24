@@ -51,22 +51,21 @@ The pair (1, 2) is an inversion as 1 < 2 and A[1] > A[2]
 The pair (1, 3) is an inversion as 1 < 3 and A[1] > A[3]
  */
 
-function solve(arr) {
-    const MOD = 1e9 + 7;
-    let inversions = 0;
-
-    function merge(arr, low, mid, high) {
+function solve(A) {
+    function merge(A, low, mid, high) {
         const temp = [];
         let left = low;
         let right = mid + 1;
 
+        let inversions = 0;
+        const MOD = 1e9 + 7;
+
         while (left <= mid && right <= high) {
-            if (arr[left] <= arr[right]) {
-                temp.push(arr[left]);
+            if (A[left] <= A[right]) {
+                temp.push(A[left]);
                 left++;
             } else {
-                temp.push(arr[right]);
-                console.log(inversions, mid, left);
+                temp.push(A[right]);
                 inversions += (mid - left + 1); // Count inversions
                 inversions %= MOD;
                 right++;
@@ -74,37 +73,38 @@ function solve(arr) {
         }
 
         while (left <= mid) {
-            temp.push(arr[left]);
+            temp.push(A[left]);
             left++;
         }
 
         while (right <= high) {
-            temp.push(arr[right]);
+            temp.push(A[right]);
             right++;
         }
 
         for (let i = low; i <= high; i++) {
-            arr[i] = temp[i - low];
+            A[i] = temp[i - low];
         }
 
-        return arr;
+        return inversions;
     }
 
-    function mergeSort(arr, low, high) {
+    function mergeSort(A, low, high) {
+        let inversions = 0;
+
         if (low === high) {
-            return;
+            return inversions;
         }
 
         const mid = Math.floor((low + high) / 2);
-        mergeSort(arr, low, mid); // first half
-        mergeSort(arr, mid + 1, high); // second half
-        merge(arr, low, mid, high) // merge first and second half;
+        inversions += mergeSort(A, low, mid); // first half
+        inversions += mergeSort(A, mid + 1, high); // second half
+        inversions += merge(A, low, mid, high) // merge first and second half;
 
-        return arr;
+        return inversions % MOD;
     }
 
-    mergeSort(arr, 0, arr.length - 1);
-    return inversions % MOD;
+    return mergeSort(A, 0, A.length - 1);
 }
 
 console.log(solve([1, 3, 2])); // 1
