@@ -53,28 +53,28 @@ Explanation 2:
  100 is the peak.
  */
 
-function solve() {
-    let low = 0;
-    let high = A.length - 1;
+function solve(A) {
+    if (A.length === 1) {
+        return A[0];
+    }
+
+    let low = 0,
+        high = A.length - 1;
 
     while (low <= high) {
-        let mid = Math.floor((low + high) / 2);
+        let mid = (low + high) >> 1;
 
-        // Check if the middle element is a peak
         if ((mid === 0 || A[mid] >= A[mid - 1]) && (mid === A.length - 1 || A[mid] >= A[mid + 1])) {
             return A[mid];
-        }
-
-        // If middle element is not a peak and its left neighbor is greater, then left half must have a peak
-        if (mid > 0 && A[mid - 1] > A[mid]) {
-            high = mid - 1;
-        } else {  // Otherwise, the right half must have a peak
+        } else if (mid != A.length - 1 && A[mid + 1] >= A[mid]) {
             low = mid + 1;
+        } else {
+            high = mid - 1;
         }
     }
 
-    return -1; // This line should never be reached because a peak is guaranteed
+    return -1;
 }
 
-console.log(solve());
-console.log(solve());
+console.log(solve([1, 2, 3, 4, 5])); // 5
+console.log(solve([5, 17, 100, 11])); // 100

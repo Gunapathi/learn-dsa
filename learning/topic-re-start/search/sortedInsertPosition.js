@@ -70,9 +70,10 @@ function lowerBound(arr, target) {
     while (low <= high) {
         let mid = Math.floor((low + high) / 2);
 
-        if (arr[mid] === target) {
-            return mid;
-        } else if (arr[mid] >= target) { // if it's upper_bound, then use only (>) instead of (>=)
+        if (arr[mid] >= target) { // if it's upper_bound, then use only (>) instead of (>=)
+            if (arr[mid] === target) {
+                return mid;
+            }
             high = mid - 1; // // Search in the left half
         } else {
             low = mid + 1; // Search in the right half
