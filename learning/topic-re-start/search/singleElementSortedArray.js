@@ -84,8 +84,26 @@ function solve(A) {
 
     // This should never be reached with valid input
     return -1
-
 }
+
+// alternate approach - simplified
+/**
+while (low < high) {
+    let mid = (low + high) >> 1;
+
+    if (mid % 2 != 0) {
+        mid--;
+    }
+
+    if (A[mid] === A[mid + 1]) {
+        low = mid + 2;
+    } else {
+        high = mid
+    }
+}
+
+return A[low];
+ */
 
 console.log(solve([1, 1, 7])); // 7
 console.log(solve([1, 1, 2, 2, 3, 4, 4])); // 3
