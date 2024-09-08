@@ -59,7 +59,7 @@ The new node is added after the first node of the linked list
  */
 
 class Node {
-    constructor(data = 0, next = null) {
+    constructor(data) {
         this.data = data;
         this.next = null;
     }
@@ -91,17 +91,52 @@ function solve(A, B, C) {
     return A;
 }
 
-// Insert a new node with value 3 at position 1
-list = new Node(1, new Node(2));
-solve(list, 3, 1);
-printList(result);  // Output: 1 -> 3 -> 2
+// Helper function to create a linked list from an array
+function createLinkedList(arr) {
+    if (arr.length === 0) return null;
+    let head = new Node(arr[0]);
+    let current = head;
+    for (let i = 1; i < arr.length; i++) {
+        current.next = new Node(arr[i]);
+        current = current.next;
+    }
+    return head;
+}
 
 // Helper function to print the linked list
 function printList(head) {
     let current = head;
-    while (current != null) {
-        process.stdout.write(current.data + " -> ");
+    let result = [];
+    while (current !== null) {
+        result.push(current.data);
         current = current.next;
     }
-    console.log("null");
+    console.log(result.join(' -> '));
 }
+
+// Test cases 1
+console.log("Test Case 1:");
+let list1 = createLinkedList([1, 2]);
+console.log("Original list:");
+printList(list1);
+let result1 = solve(list1, 3, 0);
+console.log("After inserting 3 at position 0:");
+printList(result1);
+
+// Test cases 2
+console.log("\nTest Case 2:");
+let list2 = createLinkedList([1, 2]);
+console.log("Original list:");
+printList(list2);
+let result2 = solve(list2, 3, 1);
+console.log("After inserting 3 at position 1:");
+printList(result2);
+
+// Test cases 3
+console.log("\nTest Case 3:");
+let list3 = createLinkedList([1, 2]);
+console.log("Original list:");
+printList(list3);
+let result3 = solve(list3, 3, 5);  // Position beyond list length
+console.log("After inserting 3 at position 5 (beyond list length):");
+printList(result3);

@@ -47,19 +47,19 @@ When A = 9 which is a perfect square of 3, so we return 3.
  */
 
 function solve(A) {
-    let low = 0;
-    let high = A;
-    let ans = 0;
+    let low = 0,
+        high = A,
+        ans = 0;
 
     while (low <= high) {
-        let mid = Math.floor((low + high) / 2);
+        let mid = (low + high) >> 1;
         const sqt = mid * mid;
 
         if (sqt === A) {
-            return mid
+            return mid;
         } else if (sqt < A) {
             ans = mid;
-            low = mid + 1;
+            low = mid + 1
         } else {
             high = mid - 1;
         }

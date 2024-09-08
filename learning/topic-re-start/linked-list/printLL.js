@@ -43,10 +43,10 @@ We print the given linked list
  */
 
 // Definition of JS linkedList
-function LinkedList(data, next = null) {
-    this.data = data;
-    this.next = next;
-}
+// function LinkedList(data, next = null) {
+//     this.data = data;
+//     this.next = next;
+// }
 
 function solve(A) {
     let current = A,

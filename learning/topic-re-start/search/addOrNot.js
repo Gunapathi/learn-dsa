@@ -86,13 +86,21 @@ Step 5: Update maxFrequency and bestNumber If the current window size right - le
 Step 6: Return the result Finally, the solution returns an array with the maximum frequency maxFrequency and the number with the maximum frequency bestNumber.
 
 The time complexity of this solution is O(n log n) due to the sorting step, and the space complexity is O(1) since only a few extra variables are used.
+
+WORKING:
+
+1. The array is sorted at the beginning on ascending order.
+2. The sliding window is defined by left and right pointers.
+3. totalOperations is updated by calculating how many increments are needed to make all elements in the window equal to A[right].
+4. If totalOperations exceeds B, the window is shrunk from the left.
+5. maxFrequency and bestNumber are updated when a better window is found.
  */
 
 function solve(A, B) {
     A.sort((a, b) => a - b); // Step 1: Sort the array
     let n = A.length;
     let left = 0;
-    let totalOperations = 0;
+    let totalOperations = 0; // variable is actually tracking the number of operations needed to make all elements in the current window equal to the rightmost element of the window.
     let maxFrequency = 1; // Start with at least 1 occurrence
     let bestNumber = A[0];
 
