@@ -52,7 +52,7 @@
 //  Ouput dentotes the postfix expression of the given input.
 // `
 
-function prec(a) {
+function precedence(a) {
     if (a === '^') {
         return 3;
     } else if (a === '*' || a === '/') {
@@ -65,45 +65,32 @@ function prec(a) {
 }
 
 function solve(A) {
-    let n = A.length;
-    let ans = [];
-    let st = [];
+    let stack = [];
+    let result = [];
 
-    for (let i = 0; i < n; i++) {
-        let ch = A[i];
+    for (let i = 0; i < A.length; i++) {
+        const char = A[i];
 
-        // If the character is an operand (lowercase letter)
-        if (ch >= 'a' && ch <= 'z') {
-            ans.push(ch);
-        }
-        // If the character is an operator
-        else if (ch === '*' || ch === '/' || ch === '+' || ch === '-' || ch === '^') {
-            while (st.length !== 0 && prec(st[st.length - 1]) >= prec(ch)) {
-                ans.push(st.pop());
+        if (char >= 'a' && char <= 'z') {
+            result.push(char);
+        } else if (char === '+' || char === '-' || char === '*' || char === '/' || char === '^') {
+            while (stack.length !== 0 && precedence(stack[stack.length - 1]) >= precedence(char)) {
+                result.push(stack.pop()); // pop high precedence operators & push to result
             }
-            st.push(ch);
-        }
-        // If the character is an opening parenthesis
-        else if (ch === '(') {
-            st.push(ch);
-        }
-        // If the character is a closing parenthesis
-        else if (ch === ')') {
-            while (st.length !== 0 && st[st.length - 1] !== '(') {
-                ans.push(st.pop());
+            stack.push(char); // push current low precedence operator to stack
+        } else if (char === '(') {
+            stack.push(char);
+        } else if (char === ')') {
+            while (stack.length !== 0 && stack[stack.length - 1] !== ')') {
+                result.push(stack.pop());
             }
-            if (st.length !== 0) {
-                st.pop(); // Pop the '('
+            if (stack.length !== 0) {
+                stack.pop(); // remove '(' => function closed
             }
         }
     }
 
-    // Pop the remaining operators from the stack
-    while (st.length !== 0) {
-        ans.push(st.pop());
-    }
-
-    return ans.join('');
+    return result.join('');
 }
 
 console.log(solve('c*(u-p)^e/(w*x^p)^k^(d^o)')); // Output: "cup-e^*wxp^*k^do^^/"
