@@ -71,11 +71,11 @@ Explanation 2:
 //    }
 
 function solve(A, B) {
-    return hasPathSum(A, 0, B) ? 1 : 0
+    return preOrderHasPathSum(A, 0, B) ? 1 : 0
 }
 
 // Helper function to check root-to-leaf paths
-function hasPathSum(node, currentSum, target) {
+function preOrderHasPathSum(node, currentSum, target) {
     if (node === null) {
         return false;
     }
@@ -89,5 +89,5 @@ function hasPathSum(node, currentSum, target) {
     }
 
     // Recursively check the left and right subtrees
-    return hasPathSum(node.left, currentSum, target) || hasPathSum(node.right, currentSum, target);
+    return preOrderHasPathSum(node.left, currentSum, target) || preOrderHasPathSum(node.right, currentSum, target);
 }
