@@ -106,26 +106,26 @@ function solve(A, B) {
 
     // highest of first window
     for (let i = 0; i < B; i++) {
-        while (!queue.isEmpty() && queue.rear() < A[i]) {
+        while (!queue.isEmpty() && A[queue.rear()] < A[i]) {
             queue.pop_rear();
         }
-        queue.push_rear(A[i]);
+        queue.push_rear(i);
     }
-    ans.push(queue.front())
+    ans.push(A[queue.front()])
 
     let start = 1,
         end = B;
 
     while (end < A.length) {
-        while (!queue.isEmpty() && queue.rear() < A[end]) {
+        while (!queue.isEmpty() && A[queue.rear()] < A[end]) {
             queue.pop_rear();
         }
-        queue.push_rear(A[end]);
+        queue.push_rear(end);
 
-        if (queue.front() === A[start - 1]) {
+        if (queue.front() <= (start - 1)) {
             queue.pop_front();
         }
-        ans.push(queue.front());
+        ans.push(A[queue.front()]);
         start++;
         end++;
     }
