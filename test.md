@@ -1,24 +1,63 @@
-Building server function: default...
-file:///D:/WORK/OWN/devils-advocart/web/node_modules/@opennextjs/aws/dist/build/copyTracedFiles.js:128
-                throw new Error(`
-                      ^
+Incremental cache does not need populating
+Tag cache does not need populating
 
-Error: 
---------------------------------------------------------------------------------
-app/api\verdict\route cannot use the edge runtime.
-OpenNext requires edge runtime function to be defined in a separate function.
-See the docs for more information on how to bundle edge runtime functions.
---------------------------------------------------------------------------------
-        
-    at computeCopyFilesForPage (file:///D:/WORK/OWN/devils-advocart/web/node_modules/@opennextjs/aws/dist/build/copyTracedFiles.js:128:23)
-    at file:///D:/WORK/OWN/devils-advocart/web/node_modules/@opennextjs/aws/dist/build/copyTracedFiles.js:193:9
-    at Array.forEach (<anonymous>)
-    at copyTracedFiles (file:///D:/WORK/OWN/devils-advocart/web/node_modules/@opennextjs/aws/dist/build/copyTracedFiles.js:192:12)
-    at generateBundle (file:///D:/WORK/OWN/devils-advocart/web/node_modules/@opennextjs/cloudflare/dist/cli/build/open-next/createServerBundle.js:121:60)
-    at createServerBundle (file:///D:/WORK/OWN/devils-advocart/web/node_modules/@opennextjs/cloudflare/dist/cli/build/open-next/createServerBundle.js:75:11)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
-    at async build (file:///D:/WORK/OWN/devils-advocart/web/node_modules/@opennextjs/cloudflare/dist/cli/build/build.js:87:5)
-    at async buildCommand (file:///D:/WORK/OWN/devils-advocart/web/node_modules/@opennextjs/cloudflare/dist/cli/commands/build.js:40:5)
+ ⛅️ wrangler 4.107.0
+────────────────────
 
-Node.js v24.4.1
-PS D:\WORK\OWN\devils-advocart\web> 
+Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+
+✘ [ERROR] Missing entry-point to Worker script or to assets directory
+
+  
+  If there is code to deploy, you can either:
+  - Specify an entry-point to your Worker script via the command line (ex: `npx wrangler deploy src/index.ts`)
+  - Or add the following to your "wrangler.toml" file:
+  
+  ```
+  main = "src/index.ts"
+  
+  ```
+  
+  
+  If are uploading a directory of assets, you can either:
+  - Specify the path to the directory of assets via the command line: (ex: `npx wrangler deploy --assets=./dist`)
+  - Or add the following to your "wrangler.toml" file:
+  
+  ```
+  [assets]
+  directory = "./dist"
+  
+  ```
+  
+
+
+🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-07-06_21-48-47_679.log"
+ERROR Wrangler deploy command failed:
+✘ [ERROR] Missing entry-point to Worker script or to assets directory
+
+  
+  If there is code to deploy, you can either:
+  - Specify an entry-point to your Worker script via the command line (ex: `npx wrangler deploy src/index.ts`)
+  - Or add the following to your "wrangler.toml" file:
+  
+  ```
+  main = "src/index.ts"
+  
+  ```
+  
+  
+  If are uploading a directory of assets, you can either:
+  - Specify the path to the directory of assets via the command line: (ex: `npx wrangler deploy --assets=./dist`)
+  - Or add the following to your "wrangler.toml" file:
+  
+  ```
+  [assets]
+  directory = "./dist"
+  
+  ```
+  
+
+
+🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-07-06_21-48-47_679.log"
+
+Error: Process completed with exit code 1.
