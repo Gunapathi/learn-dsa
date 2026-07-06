@@ -1,3 +1,13 @@
+⚙️ Bundling the OpenNext server...
+
+Worker saved in `.open-next/worker.js` 🚀
+
+OpenNext build complete.
+
+┌──────────────────────────────┐
+│ OpenNext — Cloudflare deploy │
+└──────────────────────────────┘
+
 Incremental cache does not need populating
 Tag cache does not need populating
 
@@ -6,58 +16,18 @@ Tag cache does not need populating
 
 Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
 
-✘ [ERROR] Missing entry-point to Worker script or to assets directory
+✘ [ERROR] In a non-interactive environment, it's necessary to set a CLOUDFLARE_API_TOKEN environment variable for wrangler to work. Please go to https://developers.cloudflare.com/fundamentals/api/get-started/create-token/ for instructions on how to create an api token, and assign its value to CLOUDFLARE_API_TOKEN.
 
   
-  If there is code to deploy, you can either:
-  - Specify an entry-point to your Worker script via the command line (ex: `npx wrangler deploy src/index.ts`)
-  - Or add the following to your "wrangler.toml" file:
-  
-  ```
-  main = "src/index.ts"
-  
-  ```
-  
-  
-  If are uploading a directory of assets, you can either:
-  - Specify the path to the directory of assets via the command line: (ex: `npx wrangler deploy --assets=./dist`)
-  - Or add the following to your "wrangler.toml" file:
-  
-  ```
-  [assets]
-  directory = "./dist"
-  
-  ```
-  
+  To continue without logging in, rerun this command with `--temporary`. Wrangler will use a temporary account and print a claim URL.
 
 
-🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-07-06_21-48-47_679.log"
+🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-07-06_22-00-19_933.log"
 ERROR Wrangler deploy command failed:
-✘ [ERROR] Missing entry-point to Worker script or to assets directory
+✘ [ERROR] In a non-interactive environment, it's necessary to set a CLOUDFLARE_API_TOKEN environment variable for wrangler to work. Please go to https://developers.cloudflare.com/fundamentals/api/get-started/create-token/ for instructions on how to create an api token, and assign its value to CLOUDFLARE_API_TOKEN.
 
   
-  If there is code to deploy, you can either:
-  - Specify an entry-point to your Worker script via the command line (ex: `npx wrangler deploy src/index.ts`)
-  - Or add the following to your "wrangler.toml" file:
-  
-  ```
-  main = "src/index.ts"
-  
-  ```
-  
-  
-  If are uploading a directory of assets, you can either:
-  - Specify the path to the directory of assets via the command line: (ex: `npx wrangler deploy --assets=./dist`)
-  - Or add the following to your "wrangler.toml" file:
-  
-  ```
-  [assets]
-  directory = "./dist"
-  
-  ```
-  
+  To continue without logging in, rerun this command with `--temporary`. Wrangler will use a temporary account and print a claim URL.
 
 
-🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-07-06_21-48-47_679.log"
-
-Error: Process completed with exit code 1.
+🪵  Logs were written to "/home/runner/.config/.wrangler/logs/wrangler-2026-07-06_22-00-19_933.log"
