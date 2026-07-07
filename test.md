@@ -1,1 +1,0 @@
-Hostname '3dsklpt.in' already has externally managed DNS records (A, CNAME, etc). Delete them first or try a different hostname.
