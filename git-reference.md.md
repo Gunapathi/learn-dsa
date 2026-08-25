@@ -125,6 +125,23 @@ gpush() {
   git -c credential.helper= push "$url" HEAD "$@"
 }
 
+# Fetch
+gfetch() {
+  local host url
+  host=$(git remote get-url origin | sed 's|https://[^@]*@||; s|https://||')
+  url="https://$GH_TOKEN@$host"
+  git -c credential.helper= fetch "$url" "+refs/heads/*:refs/remotes/origin/*"
+}
+
+#Fetch prune
+gfetchPrune() {
+  local host url
+  host=$(git remote get-url origin | sed 's|https://[^@]*@||; s|https://||')
+  url="https://$GH_TOKEN@$host"
+  git -c credential.helper= fetch --prune --prune-tags "$url" \
+    "+refs/heads/*:refs/remotes/origin/*" "+refs/tags/*:refs/tags/*"
+}
+
 # Pull current branch
 gpull() {
   local host url branch
